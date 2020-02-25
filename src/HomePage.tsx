@@ -1,4 +1,4 @@
-import React, {ChangeEvent, MouseEvent} from 'react';
+import React, {ChangeEvent, useEffect} from 'react';
 import { useTranslation } from 'react-i18next';
 import {Select} from '@material-ui/core/';
 
@@ -8,6 +8,15 @@ interface OptionType {
 
 function HomePage() {
   const [ t, i18n ] = useTranslation();
+
+  useEffect(() => {
+    setDefaultLang();
+  }, []);
+
+  const setDefaultLang = () => {
+    let selectLang: HTMLSelectElement = document.getElementById("selectLang") as HTMLSelectElement;
+    selectLang.value = i18n.language;
+  };
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
@@ -25,7 +34,7 @@ function HomePage() {
 
       <h1> { t('IDS_MENU_SETTINGS') } </h1>
 
-      <Select native labelId="label" id="select" onChange={handleChange}>
+      <Select native labelId="label" id="selectLang" onChange={handleChange}>
         <option value="it">Italian</option>
         <option value="en">English</option>
         <option value="de">German</option>
