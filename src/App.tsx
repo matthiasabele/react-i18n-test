@@ -10,9 +10,6 @@ function App() {
         <HomePage />
       </Suspense>
 
-
-      <h1>I'm not internationalized</h1>
-
     </div>
   );
 }
