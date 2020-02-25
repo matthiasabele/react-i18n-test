@@ -10,13 +10,9 @@ function HomePage() {
   const [ t, i18n ] = useTranslation();
 
   useEffect(() => {
-    setDefaultLang();
-  }, []);
-
-  const setDefaultLang = () => {
     let selectLang: HTMLSelectElement = document.getElementById("selectLang") as HTMLSelectElement;
     selectLang.value = i18n.language;
-  };
+  }, [i18n.language]);
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
