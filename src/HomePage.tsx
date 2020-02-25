@@ -5,12 +5,11 @@ function HomePage() {
   const [ t, i18n ] = useTranslation();
 
   const changeLanguage = (lng: string) => {
-    console.log('asdasdased');
     i18n.changeLanguage(lng);
   };
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-    console.log(event.currentTarget.getAttribute('data-dio'));
+    //console.log(event.currentTarget.getAttribute('data-dio'));
     let dio=''+event.currentTarget.getAttribute('data-dio');
     changeLanguage(dio);
   };
